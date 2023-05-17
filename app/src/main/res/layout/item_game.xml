@@ -16,7 +16,7 @@
         android:paddingVertical="20dp">
 
         <ImageView
-            android:id="@+id/iv_item_test"
+            android:id="@+id/image_game"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/main_blue"
@@ -26,7 +26,7 @@
             tools:src="@drawable/easy_icon" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_test"
+            android:id="@+id/title_game"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -36,7 +36,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/arrow_right_test"
-            app:layout_constraintStart_toEndOf="@+id/iv_item_test"
+            app:layout_constraintStart_toEndOf="@+id/image_game"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Легкий уровень" />
 

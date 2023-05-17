@@ -9,7 +9,7 @@
     tools:context=".ui.HomeFragment">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/ablMainFragment"
+        android:id="@+id/ablHomeFragment"
         android:layout_width="match_parent"
         android:backgroundTint="@color/main_blue"
         android:layout_height="50dp"
@@ -26,25 +26,25 @@
             android:layout_marginStart="10dp" />
     </com.google.android.material.appbar.AppBarLayout>
 
-<!--    <TextView-->
-<!--        android:id="@+id/tv_welcome"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="148dp"-->
-<!--        android:fontFamily="@font/font_family"-->
-<!--        android:gravity="center"-->
-<!--        android:text="Hello, my friend"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:textSize="40sp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <TextView
+        android:id="@+id/tv_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/font_family"
+        android:gravity="center"
+        android:text="Чем займемся сегодня?"
+        android:layout_marginTop="90dp"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ablHomeFragment" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_category_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="160dp"
+        android:layout_marginBottom="120dp"
         android:orientation="vertical"
         tools:itemCount="2"
         app:layout_constraintBottom_toBottomOf="parent"

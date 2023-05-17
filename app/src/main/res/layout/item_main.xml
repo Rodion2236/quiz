@@ -16,9 +16,9 @@
         android:paddingVertical="20dp">
 
         <ImageView
-            android:id="@+id/iv_item_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/image_start_home"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:backgroundTint="@color/main_blue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +26,7 @@
             tools:src="@drawable/game_icon"/>
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_title_start"
+            android:id="@+id/title_start_home"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -36,7 +36,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/arrow_right_start"
-            app:layout_constraintStart_toEndOf="@+id/iv_item_start"
+            app:layout_constraintStart_toEndOf="@+id/image_start_home"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Начать игру"/>
 

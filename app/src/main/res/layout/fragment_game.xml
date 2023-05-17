@@ -8,7 +8,7 @@
     tools:context=".ui.GameFragment">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/ablMainFragment"
+        android:id="@+id/abl_gameFragment"
         android:layout_width="match_parent"
         android:backgroundTint="@color/main_blue"
         android:layout_height="50dp"
@@ -30,13 +30,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/change_level"
-        android:layout_marginBottom="100dp"
         android:textColor="@color/white"
-        android:textStyle="bold"
         android:textSize="40sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/rv_category_game"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/abl_gameFragment" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_category_game"
