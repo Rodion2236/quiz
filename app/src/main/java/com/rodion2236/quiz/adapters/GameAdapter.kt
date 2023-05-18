@@ -12,7 +12,7 @@ import com.rodion2236.quiz.data.GameLevel
 class GameAdapter(private val gamesList:ArrayList<GameLevel>):
     RecyclerView.Adapter<GameAdapter.GameLevelViewHolder>() {
 
-    class GameLevelViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class GameLevelViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.image_game)
         val textView: TextView = itemView.findViewById(R.id.title_game)
     }

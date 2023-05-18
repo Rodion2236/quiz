@@ -12,7 +12,7 @@ import com.rodion2236.quiz.adapters.HomeAdapter
 import com.rodion2236.quiz.data.SelectHome
 import com.rodion2236.quiz.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), HomeAdapter.onClickListener {
 
     private lateinit var binding: FragmentHomeBinding
 
@@ -40,12 +40,20 @@ class HomeFragment : Fragment() {
         selectHomeList = ArrayList()
         addDataToList()
 
-        homeAdapter = HomeAdapter(selectHomeList)
+        homeAdapter = HomeAdapter(selectHomeList, this@HomeFragment)
         recyclerView.adapter = homeAdapter
     }
 
     private fun addDataToList() {
         selectHomeList.add(SelectHome(R.drawable.game_icon, "Начать игру"))
         selectHomeList.add(SelectHome(R.drawable.wallpaper_icon, "Купить картинку"))
+    }
+
+    override fun onClick(position: Int) {
+        if (position==0) {
+            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment, GameFragment())?.commit()
+        } else {
+            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment, WallpaperFragment())?.commit()
+        }
     }
 }
