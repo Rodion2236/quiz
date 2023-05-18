@@ -12,5 +12,7 @@
     <string name="time">time</string>
     <string name="result">3/5</string>
     <string name="timer">timer\n</string>
+    <string name="time_end">Время истекло</string>
+    <string name="my_result">Ваш результат</string>
 
 </resources>
