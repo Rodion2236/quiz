@@ -55,9 +55,9 @@ class WallpaperAdapter(private val wallpaperList:ArrayList<Wallpapers>):
 
     override fun onBindViewHolder(holder: WallpaperViewHolder, position: Int) {
         val wallpaper = wallpaperList[position]
-        holder.imageView.setImageResource(wallpaper.image)
+        Glide.with(holder.imageView.context)
+            .load(wallpaper.image)
+            .into(holder.imageView)
         holder.textView.text = wallpaper.title
-
-
     }
 }

@@ -51,7 +51,9 @@ class GameFragment : Fragment(), GameAdapter.onClickListener {
     }
 
     override fun onClick(position: Int) {
-        if (position==0 || position==1) {
+        if (position==0) {
+            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment, QuestionFragment())?.commit()
+        } else if (position==1){
             activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment, QuestionFragment())?.commit()
         } else {
             activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment, QuestionFragment())?.commit()
