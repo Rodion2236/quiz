@@ -9,12 +9,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rodion2236.quiz.R
 import com.rodion2236.quiz.data.GameLevel
 
-class GameAdapter(private val gamesList:ArrayList<GameLevel>):
+class GameAdapter(private val gamesList:ArrayList<GameLevel>, private val listener:onClickListener):
     RecyclerView.Adapter<GameAdapter.GameLevelViewHolder>() {
 
     inner class GameLevelViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.image_game)
         val textView: TextView = itemView.findViewById(R.id.title_game)
+
+        init {
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                listener.onClick(position)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameLevelViewHolder {
@@ -31,5 +38,9 @@ class GameAdapter(private val gamesList:ArrayList<GameLevel>):
         val gamesLevel = gamesList[position]
         holder.imageView.setImageResource(gamesLevel.image)
         holder.textView.text = gamesLevel.title
+    }
+
+    interface onClickListener {
+        fun onClick(position: Int)
     }
 }

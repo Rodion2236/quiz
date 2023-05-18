@@ -12,7 +12,7 @@ import com.rodion2236.quiz.adapters.GameAdapter
 import com.rodion2236.quiz.data.GameLevel
 import com.rodion2236.quiz.databinding.FragmentGameBinding
 
-class GameFragment : Fragment() {
+class GameFragment : Fragment(), GameAdapter.onClickListener {
 
     private lateinit var binding: FragmentGameBinding
 
@@ -40,7 +40,7 @@ class GameFragment : Fragment() {
         gameLevelList = ArrayList()
         addDataToList()
 
-        gameAdapter = GameAdapter(gameLevelList)
+        gameAdapter = GameAdapter(gameLevelList, this@GameFragment)
         recyclerView.adapter = gameAdapter
     }
 
@@ -48,5 +48,13 @@ class GameFragment : Fragment() {
         gameLevelList.add(GameLevel(R.drawable.easy_icon, "Легкий уровень"))
         gameLevelList.add(GameLevel(R.drawable.medim_icon, "Средний уровень"))
         gameLevelList.add(GameLevel(R.drawable.hard_icon, "Тяжелый уровень"))
+    }
+
+    override fun onClick(position: Int) {
+        if (position==0 || position==1) {
+            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment, QuestionFragment())?.commit()
+        } else {
+            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment, QuestionFragment())?.commit()
+        }
     }
 }

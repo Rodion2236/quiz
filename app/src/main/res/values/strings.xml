@@ -6,5 +6,11 @@
     <string name="hello_my_friend">Hello, my friend</string>
     <string name="you_have_100_coins">you have 100 coins</string>
     <string name="change_level">Выбери уровень</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="question">Вопрос</string>
+    <string name="time">time</string>
+    <string name="result">3/5</string>
+    <string name="timer">timer\n</string>
 
 </resources>
