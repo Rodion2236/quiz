@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.rodion2236.quiz.R
 import com.rodion2236.quiz.data.Wallpapers
 import okio.IOException
@@ -57,6 +58,7 @@ class WallpaperAdapter(private val wallpaperList:ArrayList<Wallpapers>):
         val wallpaper = wallpaperList[position]
         Glide.with(holder.imageView.context)
             .load(wallpaper.image)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(holder.imageView)
         holder.textView.text = wallpaper.title
     }

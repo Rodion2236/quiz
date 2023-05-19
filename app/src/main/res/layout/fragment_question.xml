@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fon"
-    tools:context=".ui.QuestionFragment">
+    tools:context=".ui.fragments.QuestionFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/ablQuestionFragment"
@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/abl_back"
             android:layout_width="30dp"
             android:layout_height="30dp"

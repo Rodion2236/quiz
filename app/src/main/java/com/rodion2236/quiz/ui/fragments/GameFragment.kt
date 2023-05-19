@@ -1,4 +1,4 @@
-package com.rodion2236.quiz.ui
+package com.rodion2236.quiz.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,14 +26,16 @@ class GameFragment : Fragment(), GameAdapter.onClickListener {
     ): View {
         binding = FragmentGameBinding
             .inflate(inflater, container, false)
+        init()
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         binding.ablBack.setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment, HomeFragment())?.commit()
         }
-
-        init()
-
-        return binding.root
     }
 
     private fun init() {

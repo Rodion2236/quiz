@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.rodion2236.quiz.R
 import com.rodion2236.quiz.data.SelectHome
 
@@ -36,7 +38,10 @@ class HomeAdapter(private val homeList:ArrayList<SelectHome>, private val listen
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val selectHome = homeList[position]
-        holder.imageView.setImageResource(selectHome.image)
+        Glide.with(holder.imageView.context)
+            .load(selectHome.image)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(holder.imageView)
         holder.textView.text = selectHome.title
     }
 

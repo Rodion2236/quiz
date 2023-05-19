@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fon"
-    tools:context=".ui.HomeFragment">
+    tools:context=".ui.fragments.HomeFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/ablHomeFragment"
@@ -25,8 +25,6 @@
             android:layout_marginTop="10dp"
             android:layout_marginStart="10dp" />
     </com.google.android.material.appbar.AppBarLayout>
-
-
 
     <TextView
         android:id="@+id/tv_welcome"

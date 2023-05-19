@@ -1,4 +1,4 @@
-package com.rodion2236.quiz.ui
+package com.rodion2236.quiz.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -26,12 +26,19 @@ class HomeFragment : Fragment(), HomeAdapter.onClickListener {
     ): View {
         binding = FragmentHomeBinding
             .inflate(inflater, container, false)
+        init()
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         binding.ablExit.setOnClickListener {
             activity?.onBackPressed()
         }
-        init()
-        return binding.root
+
+        val name = requireArguments().getString("name")
+        binding.tvWelcome.text = "Привет, $name!"
     }
 
     private fun init() {

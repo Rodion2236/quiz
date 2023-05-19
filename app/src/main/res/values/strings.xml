@@ -14,5 +14,8 @@
     <string name="timer">timer\n</string>
     <string name="time_end">Время истекло</string>
     <string name="my_result">Ваш результат</string>
+    <string name="your_name">Ваше имя</string>
+    <string name="sign_in">Войти</string>
+    <string name="hello">Давайте познакомимся</string>
 
 </resources>
