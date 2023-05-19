@@ -27,8 +27,10 @@ class HomeFragment : Fragment(), HomeAdapter.onClickListener {
         binding = FragmentHomeBinding
             .inflate(inflater, container, false)
 
+        binding.ablExit.setOnClickListener {
+            activity?.onBackPressed()
+        }
         init()
-
         return binding.root
     }
 

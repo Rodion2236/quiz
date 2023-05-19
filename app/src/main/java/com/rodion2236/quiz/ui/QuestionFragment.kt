@@ -33,6 +33,10 @@ class QuestionFragment : Fragment() {
     ): View {
         _binding = FragmentQuestionBinding
             .inflate(inflater, container,false)
+
+        binding.ablBack.setOnClickListener {
+            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment, GameFragment())?.commit()
+        }
         return binding.root
     }
 

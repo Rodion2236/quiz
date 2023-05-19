@@ -27,6 +27,10 @@ class GameFragment : Fragment(), GameAdapter.onClickListener {
         binding = FragmentGameBinding
             .inflate(inflater, container, false)
 
+        binding.ablBack.setOnClickListener {
+            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment, HomeFragment())?.commit()
+        }
+
         init()
 
         return binding.root

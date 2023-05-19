@@ -27,6 +27,10 @@ private lateinit var wallpaperAdapter: WallpaperAdapter
         binding = FragmentWallpaperBinding
             .inflate(inflater, container, false)
 
+        binding.ablWallpaperBack.setOnClickListener {
+            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment, HomeFragment())?.commit()
+        }
+
         init()
 
         return binding.root
