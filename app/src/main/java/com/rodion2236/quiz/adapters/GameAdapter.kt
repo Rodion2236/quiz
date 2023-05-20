@@ -6,23 +6,29 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.rodion2236.quiz.R
 import com.rodion2236.quiz.data.GameLevel
 
 class GameAdapter(private val gamesList:ArrayList<GameLevel>, private val listener:onClickListener):
     RecyclerView.Adapter<GameAdapter.GameLevelViewHolder>() {
 
-    inner class GameLevelViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class GameLevelViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.image_game)
         val textView: TextView = itemView.findViewById(R.id.title_game)
+
+        lateinit var gameLevel: GameLevel
 
         init {
             itemView.setOnClickListener {
                 val position = adapterPosition
-                listener.onClick(position)
+                listener.onClick(position, gameLevel)
             }
+        }
+
+        fun bind(gameLevel: GameLevel) {
+            this.gameLevel = gameLevel
+            imageView.setImageResource(gameLevel.image)
+            textView.text = gameLevel.title
         }
     }
 
@@ -38,11 +44,10 @@ class GameAdapter(private val gamesList:ArrayList<GameLevel>, private val listen
 
     override fun onBindViewHolder(holder: GameLevelViewHolder, position: Int) {
         val gamesLevel = gamesList[position]
-        holder.imageView.setImageResource(gamesLevel.image)
-        holder.textView.text = gamesLevel.title
+        holder.bind(gamesLevel)
     }
 
     interface onClickListener {
-        fun onClick(position: Int)
+        fun onClick(position: Int, gameLevel: GameLevel)
     }
 }

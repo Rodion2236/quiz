@@ -11,6 +11,7 @@ import com.rodion2236.quiz.R
 import com.rodion2236.quiz.adapters.GameAdapter
 import com.rodion2236.quiz.data.GameLevel
 import com.rodion2236.quiz.databinding.FragmentGameBinding
+import com.rodion2236.quiz.profile.CurrentProfile.Companion.instance
 
 class GameFragment : Fragment(), GameAdapter.onClickListener {
 
@@ -20,22 +21,36 @@ class GameFragment : Fragment(), GameAdapter.onClickListener {
     private lateinit var gameLevelList: ArrayList<GameLevel>
     private lateinit var gameAdapter: GameAdapter
 
+    var name = ""
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentGameBinding
             .inflate(inflater, container, false)
+
+        binding.ablBack.setOnClickListener {
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(R.id.nav_host_fragment, HomeFragment())?.commit()
+        }
         init()
+        val profile = instance!!.currentProfile
+        name = profile!!.name
+
+        val scoreText = resources.getString(R.string.score, profile.score)
+        binding.scoreGameLevel.text = scoreText
+
+
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onResume() {
+        super.onResume()
 
-        binding.ablBack.setOnClickListener {
-            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment, HomeFragment())?.commit()
-        }
+        val profile = instance!!.currentProfile
+        val scoreText = resources.getString(R.string.score, profile?.score)
+        binding.scoreGameLevel.text = scoreText
     }
 
     private fun init() {
@@ -56,13 +71,19 @@ class GameFragment : Fragment(), GameAdapter.onClickListener {
         gameLevelList.add(GameLevel(R.drawable.hard_icon, "Тяжелый уровень"))
     }
 
-    override fun onClick(position: Int) {
-        if (position==0) {
-            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment, QuestionFragment())?.commit()
-        } else if (position==1){
-            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment, QuestionFragment())?.commit()
+    override fun onClick(position: Int, gameLevel: GameLevel) {
+        val args = Bundle()
+        if (position == 0) {
+            args.putString("level", "easy")
+        } else if (position == 1) {
+            args.putString("level", "medium")
+        } else if (position == 2) {
+            args.putString("level", "hard")
         } else {
-            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment, QuestionFragment())?.commit()
+            return
         }
+
+        QuestionFragment().arguments = args
+        activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.nav_host_fragment, QuestionFragment())?.commit()
     }
 }

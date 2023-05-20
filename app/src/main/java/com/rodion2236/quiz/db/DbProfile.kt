@@ -11,13 +11,13 @@ class DbProfile private constructor(private val context: Context) {
         .build()
 
     companion object {
-        private var mInstance: DbProfile? = null
+        private var instance: DbProfile? = null
         @Synchronized
-        fun getInstance(mContext: Context): DbProfile? {
-            if (mInstance == null) {
-                mInstance = DbProfile(mContext)
+        fun getInstance(context: Context): DbProfile? {
+            if (instance == null) {
+                instance = DbProfile(context)
             }
-            return mInstance
+            return instance
         }
     }
 }

@@ -41,6 +41,12 @@
         <action
             android:id="@+id/action_gameFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <argument
+            android:name="level"
+            app:argType="string" />
+        <argument
+            android:name="name"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/questionFragment"
@@ -50,6 +56,12 @@
         <action
             android:id="@+id/action_questionFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
+        <argument
+            android:name="level"
+            app:argType="string" />
+        <argument
+            android:name="name"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/signInFragment"

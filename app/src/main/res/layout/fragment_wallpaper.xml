@@ -35,7 +35,7 @@
                 android:id="@+id/score_wallpaper"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="25"
+                android:text="@string/score"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textStyle="bold"
