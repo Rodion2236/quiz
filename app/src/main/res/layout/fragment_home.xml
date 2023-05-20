@@ -40,6 +40,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ablHomeFragment" />
 
+    <TextView
+        android:id="@+id/score_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/score"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
+
+    <ImageView
+        android:id="@+id/coin_home"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/coin_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/score_home"
+        app:layout_constraintStart_toEndOf="@+id/score_home"
+        app:layout_constraintTop_toTopOf="@+id/score_home" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_category_start"
         android:layout_width="wrap_content"

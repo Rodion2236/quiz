@@ -17,5 +17,6 @@
     <string name="your_name">Ваше имя</string>
     <string name="sign_in">Войти</string>
     <string name="hello">Давайте познакомимся</string>
+    <string name="score">15</string>
 
 </resources>
